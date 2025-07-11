@@ -1,1 +1,83 @@
-<h1>Olá Mundo</h1>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Crônicas de Baudson</title>
+  <style>
+  @font-face {
+  font-family: 'CC Wild Words';
+  src: url('CCWildWords.ttf') format('truetype');
+    }
+    body {
+     font-family: 'CC Wild Words', Arial, sans-serif;
+     margin: 20px;
+    }
+    .livro-lista {
+      display: flex;
+      gap: 20px;
+    }
+    .livro-item {
+      cursor: pointer;
+      text-align: center;
+    }
+    .livro-item img {
+      width: 120px;
+      height: 180px;
+      object-fit: cover;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    #leitor {
+      margin-top: 40px;
+      height: 600px;
+      overflow-y: scroll;
+      display: none;
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+    #leitor img {
+      max-width: 100%;
+      height: auto;
+    }
+    #fechar {
+      margin-top: 10px;
+      cursor: pointer;
+      color: blue;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Crônicas de Baudson</h1>
+
+  <div class="livro-lista">
+    <div class="livro-item" onclick="abrirLivro('livro1.png')">
+      <img src="capa1.png" alt="Capa do Livro 1" />
+      <p>Além do eu</p>
+    </div>
+    <div class="livro-item" onclick="abrirLivro('livro2.png')">
+      <img src="capa2.png" alt="Capa do Livro 2" />
+      <p>Livro 2</p>
+    </div>
+  </div>
+
+  <div id="leitor">
+    <img id="imagemLivro" src="" alt="Livro" />
+    <div id="fechar" onclick="fecharLivro()">Fechar livro</div>
+  </div>
+
+  <script>
+    function abrirLivro(imagem) {
+      document.getElementById('imagemLivro').src = imagem;
+      document.getElementById('leitor').style.display = 'block';
+    }
+    function fecharLivro() {
+      document.getElementById('leitor').style.display = 'none';
+      document.getElementById('imagemLivro').src = '';
+    }
+  </script>
+
+</body>
+</html>
